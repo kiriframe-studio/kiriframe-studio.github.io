@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KiriFrame Studio (@kiriframe_art) — Choose Language / 言語選択 / 언어 선택</title>
+<meta name="description" content="KiriFrame Studio — Industrial 2D separation & character pipeline studio. EN / 日本語 / 한국어.">
+<meta http-equiv="refresh" content="8;url=./en/">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-lang="en" data-asset-base="assets/img/" class="root-landing">
+<header class="site-head">
+  <div class="brand">KiriFrame Studio</div>
+  <nav class="lang-nav"><a href="./en/" data-lang="en">EN</a><a href="./ja/" data-lang="ja">日本語</a><a href="./ko/" data-lang="ko">한국어</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <p class="kicker">Interactive technical showcase</p>
+    <h1>KiriFrame Studio <span class="alt">@kiriframe_art</span></h1>
+    <div class="badges">
+      <span class="badge">6 Years Commercial / 100+ Delivered Models</span>
+      <span class="badge">Up to 600–1000+ Layers</span>
+      <span class="badge">3–7 Days Std / 24–48h Rush</span>
+      <span class="badge">First-Pass Approval · White-Label Ready</span>
+    </div>
+  </section>
+  <div class="lang-cards">
+    <a class="lang-card" href="./en/"><span class="lc-name">English</span>
+      <span class="lc-slogan">Zero-Clipping Precision, Rig-Ready on Import — Industrial 2D Separation &amp; Character Pipeline Studio</span></a>
+    <a class="lang-card" href="./ja/"><span class="lc-name">日本語（キリフレーム）</span>
+      <span class="lc-slogan">千レイヤー破綻ゼロ、読み込み即リギング——工業品質2Dパーツ分け＆キャラパイプライン制作スタジオ</span></a>
+    <a class="lang-card" href="./ko/"><span class="lc-name">한국어(키리프레임)</span>
+      <span class="lc-slogan">천 레이어 뚫림 제로, 임포트 즉시 리깅 — 산업 표준 2D 파츠 분리 &amp; 캐릭터 파이프라인 스튜디오</span></a>
+  </div>
+  <p class="redirect-note">Detecting your language… defaulting to English shortly, or pick one above.</p>
+  <footer class="site-foot">
+    <p><a data-email href="mailto:motokoatlas2501@gmail.com">motokoatlas2501@gmail.com</a> · <a data-x href="https://x.com/kiriframe_art" target="_blank" rel="noopener">@kiriframe_art</a> · © 2026 KiriFrame Studio</p>
+  </footer>
+</main>
+<script>
+(function () {
+  var langs = (navigator.languages || [navigator.language || "en"]).join(",");
+  var dest = /ja/i.test(langs) ? "./ja/" : (/ko/i.test(langs) ? "./ko/" : "./en/");
+  setTimeout(function () { location.replace(dest); }, 1200);
+})();
+</script>
+</body>
+</html>
