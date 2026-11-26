@@ -29,57 +29,90 @@ try {
 
 const LANG = document.body.dataset.lang || "en";
 const IMG_BASE = document.body.dataset.assetBase || "assets/img/";
+const B2_BASE = IMG_BASE.replace(/img\/$/, "batch2/");
 
 /* ---- M3 gallery data (captions per language) ---- */
 const GALLERY = [
-  { id: "L1", file: "L1.webp", cat: "heavy", cap: {
+  { id: "L1", file: "L1.webp", cats: ["heavy"], cap: {
     en: "L1 · Signature heavy-asset flagship: dense multi-part separation with wings & props",
     ja: "L1 · 招牌重型資産：翼・複数小物を含む高密度パーツ分け",
     ko: "L1 · 시그니처 헤비 자산: 날개·소품 포함 고밀도 파츠 분리" } },
-  { id: "L5", file: "L5.webp", cat: "heavy", cap: {
+  { id: "L5", file: "L5.webp", cats: ["heavy"], cap: {
     en: "L5 · Non-human design with huge wingspan and layered appendage physics",
     ja: "L5 · 巨大翼幅と多層付属物理を含む非人型デザイン",
     ko: "L5 · 거대 익폭과 다층 부속 물리를 포함한 비인간형 디자인" } },
-  { id: "L7", file: "L7.webp", cat: "heavy", cap: {
+  { id: "L7", file: "L7.webp", cats: ["heavy"], cap: {
     en: "L7 · Angel wings & ultra-long hair split by physics group",
     ja: "L7 · 天使の翼と超ロングヘアを物理グループ別に分離",
     ko: "L7 · 천사 날개와 초장발을 물리 그룹별로 분리" } },
-  { id: "L9", file: "L9.webp", cat: "outfit", cap: {
+  { id: "L9", file: "L9.webp", cats: ["outfit"], cap: {
     en: "L9 · Multi-outfit swap: dual-version uniform architecture with shared body base",
     ja: "L9 · 多衣装差分：共通ボディ母体の2バージョン制服アーキテクチャ",
     ko: "L9 · 멀티 의상 차등: 공용 바디 기반 2버전 유니폼 아키텍처" } },
-  { id: "L2", file: "L2.webp", cat: "moe", cap: {
+  { id: "L2", file: "L2.webp", cats: ["moe"], cap: {
     en: "L2 · Lolita fashion with dense multi-prop accessories",
     ja: "L2 · ロリータファッション＋多小物アクセサリー",
     ko: "L2 · 로리타 패션 + 다소품 액세서리" } },
-  { id: "L3", file: "L3.webp", cat: "moe", cap: {
+  { id: "L3", file: "L3.webp", cats: ["moe"], cap: {
     en: "L3 · Mature style with heavy draped fabric and layered skirt physics",
     ja: "L3 · 垂れ布と多層スカート物理を含む成熟系デザイン",
     ko: "L3 · 드레이프 천과 다층 스커트 물리가 포함된 성숙 계열 디자인" } },
-  { id: "L4", file: "L4.webp", cat: "male", cap: {
+  { id: "L4", file: "L4.webp", cats: ["male"], cap: {
     en: "L4 · Gothic male design with hard-surface accessories",
     ja: "L4 ・ゴシック系男性＋ハードアクセサリー",
     ko: "L4 · 고딕 남성 디자인 + 하드 액세서리" } },
-  { id: "L8", file: "L8.webp", cat: "male", cap: {
+  { id: "L8", file: "L8.webp", cats: ["male", "male_otome"], cap: {
     en: "L8 · Male character with subculture outfit separation",
     ja: "L8 ・男性キャラ＋サブカル衣装の分離",
     ko: "L8 · 남성 캐릭터 + 서브컬처 의상 분리" } },
-  { id: "G1", file: "guide_slice_1.webp", cat: "guide", cap: {
+  { id: "G1", file: "guide_slice_1.webp", cats: ["guide"], cap: {
     en: "3-Tier Separation Guide · part 1/4",
     ja: "3段階パーツ分けガイド · 1/4",
     ko: "3단계 파츠 분리 가이드 · 1/4" } },
-  { id: "G2", file: "guide_slice_2.webp", cat: "guide", cap: {
+  { id: "G2", file: "guide_slice_2.webp", cats: ["guide"], cap: {
     en: "3-Tier Separation Guide · part 2/4",
     ja: "3段階パーツ分けガイド · 2/4",
     ko: "3단계 파츠 분리 가이드 · 2/4" } },
-  { id: "G3", file: "guide_slice_3.webp", cat: "guide", cap: {
+  { id: "G3", file: "guide_slice_3.webp", cats: ["guide"], cap: {
     en: "3-Tier Separation Guide · part 3/4",
     ja: "3段階パーツ分けガイド · 3/4",
     ko: "3단계 파츠 분리 가이드 · 3/4" } },
-  { id: "G4", file: "guide_slice_4.webp", cat: "guide", cap: {
+  { id: "G4", file: "guide_slice_4.webp", cats: ["guide"], cap: {
     en: "3-Tier Separation Guide · part 4/4 (final quote requires the full PSD)",
     ja: "3段階パーツ分けガイド · 4/4（最終見積はPSD全文調査前提）",
-    ko: "3단계 파츠 분리 가이드 · 4/4(최종 견적은 PSD 전체 검토 전제)" } }
+    ko: "3단계 파츠 분리 가이드 · 4/4(최종 견적은 PSD 전체 검토 전제)" } },
+  { id: "B2-G1", file: "b2-g1-flat.webp", base: "batch2", cats: ["physics"], cap: {
+    en: "Group 1 · Flat separation sheet paired with front-hair / ears / accessory physics",
+    ja: "組1 · 平展図（前髪・耳・アクセサリー物理と対）",
+    ko: "세트1 · 평면도 (앞머리·귀·액세서리 물리 대응)" } },
+  { id: "B2-G2", file: "b2-g2-flat.webp", base: "batch2", cats: ["physics"], cap: {
+    en: "Group 2 · Flat sheet paired with ribbon & hem physics",
+    ja: "組2 · 平展図（リボン・裾物理と対）",
+    ko: "세트2 · 평면도 (리본·밑단 물리 대응)" } },
+  { id: "B2-G3", file: "b2-g3-flat.webp", base: "batch2", cats: ["physics"], cap: {
+    en: "Group 3 · Flat sheet paired with scene / skirt / veil physics",
+    ja: "組3 · 平展図（シーン・スカート・ベール物理と対）",
+    ko: "세트3 · 평면도 (장면·스커트·베일 물리 대응)" } },
+  { id: "B2-S1", file: "b2-spot-1-bed-cg.webp", base: "batch2", cats: ["dynamic_cg"], cap: {
+    en: "Dynamic CG · bedding scene with separable depth and fabric",
+    ja: "ダイナミックCG · 奥行きと布を分離した寝具シーン",
+    ko: "다이내믹 CG · 심도와 천을 분리한 침구 장면" } },
+  { id: "B2-S30", file: "b2-spot-30-male-otome.webp", base: "batch2", cats: ["male_otome"], cap: {
+    en: "Male & Otome · formal suit with expression / scar variants",
+    ja: "男性・乙女向け · 正装スーツと表情・伤痕差分",
+    ko: "남성·오토메 · 정장 수트와 표정·상흔 차등" } },
+  { id: "B2-S22", file: "b2-spot-22-impasto-rescue.webp", base: "batch2", cats: ["impasto_rescue"], cap: {
+    en: "Impasto rescue · painterly artwork reverse-engineered into layers",
+    ja: "厚塗り逆算 · 厚塗り原画をレイヤーへ逆算分離",
+    ko: "후도 역산 · 후도 원화를 레이어로 역산 분리" } },
+  { id: "B2-S5", file: "b2-spot-5-lace.webp", base: "batch2", cats: ["heavy"], cap: {
+    en: "Heavy lace layering with soft alpha edges",
+    ja: "柔らかなアルファ輪郭を含む重型レースの多層",
+    ko: "부드러운 알파 경계를 포함한 헤비 레이스 다층" } },
+  { id: "B2-S3", file: "b2-spot-3-sheer.webp", base: "batch2", cats: ["heavy"], cap: {
+    en: "Sheer fabric with multi-layer occlusion overpaint",
+    ja: "多層遮蔽＋描き足しを伴う薄紗",
+    ko: "다층 가림 보필을 동반한 얇은 천" } }
 ];
 
 /* ---- M4 layer tree (JSON-driven) + 4-language naming spec ---- */
@@ -185,28 +218,34 @@ function initTabs(box) {
 }
 
 /* ---- M3 gallery + lightbox + filters ---- */
+function itemSrc(g) {
+  return (g.base === "batch2" ? B2_BASE : IMG_BASE) + g.file;
+}
+function showLightbox(src, cap) {
+  const lb = document.getElementById("lightbox");
+  if (!lb) return;
+  lb.querySelector("img").src = src;
+  lb.querySelector(".lb-cap").textContent = cap;
+  lb.hidden = false;
+}
 function initGallery() {
   const grid = document.getElementById("gallery");
   const lb = document.getElementById("lightbox");
   if (!grid || !lb) return;
-  const lbImg = lb.querySelector("img");
-  const lbCap = lb.querySelector(".lb-cap");
   const close = () => { lb.hidden = true; };
   lb.querySelector(".lb-close").addEventListener("click", close);
   lb.addEventListener("click", e => { if (e.target === lb) close(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
   const draw = () => {
     grid.innerHTML = GALLERY.map(g => `
-      <figure class="card" data-cat="${g.cat}">
-        <img src="${IMG_BASE}${g.file}" alt="${g.id}" loading="lazy">
+      <figure class="card" data-cats="${g.cats.join(" ")}">
+        <img src="${itemSrc(g)}" alt="${g.id}" loading="lazy">
         <figcaption>${g.cap[LANG] || g.cap.en}</figcaption>
       </figure>`).join("");
     grid.querySelectorAll(".card").forEach((c, i) => {
       c.addEventListener("click", () => {
         const g = GALLERY[i];
-        lbImg.src = IMG_BASE + g.file;
-        lbCap.textContent = g.cap[LANG] || g.cap.en;
-        lb.hidden = false;
+        showLightbox(itemSrc(g), g.cap[LANG] || g.cap.en);
       });
     });
   };
@@ -214,7 +253,36 @@ function initGallery() {
   document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
     document.querySelectorAll(".filters button").forEach(x => x.classList.toggle("active", x === b));
     const f = b.dataset.filter;
-    grid.querySelectorAll(".card").forEach(c => { c.style.display = (f === "all" || c.dataset.cat === f) ? "" : "none"; });
+    grid.querySelectorAll(".card").forEach(c => {
+      const cats = (c.dataset.cats || "").split(/\s+/);
+      c.style.display = (f === "all" || cats.indexOf(f) !== -1) ? "" : "none";
+    });
+  }));
+}
+
+/* ---- M2 paired flat-sheet <-> physics GIF toggles ---- */
+function initPairs() {
+  document.querySelectorAll("[data-pair]").forEach(pair => {
+    const gif = pair.querySelector(".pair-gif");
+    const tabs = pair.querySelectorAll(".pair-tabs button");
+    tabs.forEach(btn => btn.addEventListener("click", () => {
+      tabs.forEach(x => x.classList.toggle("active", x === btn));
+      gif.src = btn.dataset.gif;
+    }));
+    const flat = pair.querySelector(".pair-flat img");
+    if (flat) flat.addEventListener("click", () => {
+      const cap = pair.querySelector(".pair-flat figcaption");
+      showLightbox(flat.src, cap ? cap.textContent : flat.alt);
+    });
+  });
+}
+
+/* ---- M1 high-difficulty spotlight (reuses lightbox) ---- */
+function initSpotlight() {
+  document.querySelectorAll(".spot-card").forEach(card => card.addEventListener("click", () => {
+    const img = card.querySelector("img");
+    const cap = card.querySelector("figcaption");
+    showLightbox(img.src, cap ? cap.textContent : img.alt);
   }));
 }
 
@@ -249,6 +317,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-compare]").forEach(initCompare);
   document.querySelectorAll("[data-tabs]").forEach(initTabs);
   initGallery();
+  initPairs();
+  initSpotlight();
   initTree();
   document.querySelectorAll(".lang-nav a").forEach(a => a.classList.toggle("active", a.dataset.lang === LANG));
 });

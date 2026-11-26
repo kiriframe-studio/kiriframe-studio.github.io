@@ -230,9 +230,51 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 28px 20px 80px; }
 .lang-card .lc-slogan { font-size: 13px; color: var(--muted); }
 .redirect-note { color: var(--muted); font-size: 13px; }
 
+/* ---------- M2 paired physics ---------- */
+.physics-pairs { margin-top: 24px; border-top: 1px dashed var(--line); padding-top: 20px; }
+.physics-pairs h3, .spotlight h3 { margin: 0 0 6px; font-size: 17px; }
+.pair-badge {
+  display: inline-block; margin: 2px 0 10px; padding: 4px 12px; border-radius: 999px;
+  background: rgba(124, 156, 255, .12); border: 1px solid var(--accent-2);
+  color: var(--accent-2); font-size: 12px; font-weight: 700; letter-spacing: .02em;
+}
+.pair-lead { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+.pair-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.pair-card {
+  margin: 0; background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.pair-flat { margin: 0; cursor: zoom-in; }
+.pair-flat img, .pair-life img {
+  width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line); background: #0a0d12;
+}
+.pair-flat figcaption { color: var(--muted); font-size: 11.5px; margin-top: 6px; }
+.pair-life { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pair-gif { aspect-ratio: 1 / 1; object-fit: contain; }
+.pair-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.pair-tabs button {
+  background: var(--panel); color: var(--muted); border: 1px solid var(--line);
+  padding: 4px 10px; border-radius: 7px; cursor: pointer; font-size: 12px; font-weight: 600;
+}
+.pair-tabs button.active { color: #06201c; background: var(--accent); border-color: var(--accent); }
+.pair-cta { margin: 16px 0 0; text-align: center; }
+
+/* ---------- M1 high-difficulty spotlight ---------- */
+.spotlight { margin-top: 24px; border-top: 1px dashed var(--line); padding-top: 20px; }
+.spot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.spot-card {
+  margin: 0; background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden; cursor: zoom-in;
+}
+.spot-card img { width: 100%; height: 150px; object-fit: cover; object-position: top; display: block; }
+.spot-card:hover img { opacity: .92; }
+.spot-card figcaption { padding: 8px 10px; font-size: 12px; color: var(--muted); }
+
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
   .m5-grid, .m6-duo, .img-duo { grid-template-columns: 1fr; }
+  .spot-grid { grid-template-columns: 1fr 1fr; }
+  .pair-card { grid-template-columns: 1fr; }
   .hero h1 { font-size: 30px; }
   .module { padding: 20px 16px; }
   .price-table { font-size: 12px; display: block; overflow-x: auto; }

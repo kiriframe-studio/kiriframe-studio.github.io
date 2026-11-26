@@ -57,6 +57,28 @@
         <label class="zoom-toggle"><input type="checkbox" data-zoom> 200% ルーペ検視</label>
       </div>
     </div>
+      
+      <div class="spotlight">
+        <h3>高難度パーツ分け スポットライト（4選）</h3>
+        <p class="lead">厚塗り逆算・シーンCG・重型レース・薄紗の4点。カードをクリックで拡大表示します（偽のスライダー比較は行いません）。</p>
+        <div class="spot-grid">
+        <figure class="spot-card">
+          <img src="../assets/batch2/b2-spot-22-impasto-rescue.webp" alt="b2-spot-22-impasto-rescue.webp" loading="lazy">
+          <figcaption>厚塗り原画をレイヤーへ逆算分離</figcaption>
+        </figure>
+        <figure class="spot-card">
+          <img src="../assets/batch2/b2-spot-1-bed-cg.webp" alt="b2-spot-1-bed-cg.webp" loading="lazy">
+          <figcaption>奥行きと布を分離した寝具シーンCG</figcaption>
+        </figure>
+        <figure class="spot-card">
+          <img src="../assets/batch2/b2-spot-5-lace.webp" alt="b2-spot-5-lace.webp" loading="lazy">
+          <figcaption>柔らかなアルファ輪郭を含む重型レースの多層</figcaption>
+        </figure>
+        <figure class="spot-card">
+          <img src="../assets/batch2/b2-spot-3-sheer.webp" alt="b2-spot-3-sheer.webp" loading="lazy">
+          <figcaption>多層遮蔽＋描き足しを伴う薄紗</figcaption>
+        </figure></div>
+      </div>
     </section>
 
     <section class="module" id="m2">
@@ -75,6 +97,44 @@
         <div class="tab-panel" data-panel="face" hidden><div class="img-duo"><img src="../assets/img/L13.webp" alt="L13 face base" loading="lazy"><img src="../assets/img/L14.webp" alt="L14 nose" loading="lazy"></div><span class="chip">sRGB 8-bit</span><p>顔ベース・赤面ハイライト・鼻を独立レイヤー化。角度追従の描き足しが安全に。</p></div>
         <div class="tab-panel" data-panel="hair" hidden><img src="../assets/img/L12.webp" alt="L12 hair physics" loading="lazy"><span class="chip">30°〜45° 頭部回転マージン</span><p>前髪・中間・後ろ髪を物理グループ別に分離。30°〜45°の頭部回転マージンを確保。</p></div>
       </div>
+      
+      <div class="physics-pairs">
+        <h3>平展図 ↔ 物理実機 連動表示（3組）</h3>
+        <p class="pair-badge">Component Physics Previews · Tier 2 Co-Delivery Pilot (3 Slots)</p>
+        <p class="pair-lead">各カードは平展パーツ図と部位別の物理GIFを対で表示します。平展図をクリックすると拡大、タブ切替で各パーツの実機挙動を確認できます。</p>
+        <div class="pair-grid">
+        <article class="pair-card" data-pair>
+          <figure class="pair-flat">
+            <img src="../assets/batch2/b2-g1-flat.webp" alt="b2-g1-flat.webp" loading="lazy">
+            <figcaption>組 1 · 平展図</figcaption>
+          </figure>
+          <div class="pair-life">
+            <img class="pair-gif" src="../assets/batch2/b2-g1-bangs.gif" alt="b2-g1-bangs.gif" loading="lazy">
+            <div class="pair-tabs"><button data-gif="../assets/batch2/b2-g1-bangs.gif" class="active">前髪</button><button data-gif="../assets/batch2/b2-g1-ears.gif">耳</button><button data-gif="../assets/batch2/b2-g1-acc.gif">アクセサリー</button></div>
+          </div>
+        </article>
+        <article class="pair-card" data-pair>
+          <figure class="pair-flat">
+            <img src="../assets/batch2/b2-g2-flat.webp" alt="b2-g2-flat.webp" loading="lazy">
+            <figcaption>組 2 · 平展図</figcaption>
+          </figure>
+          <div class="pair-life">
+            <img class="pair-gif" src="../assets/batch2/b2-g2-bow.gif" alt="b2-g2-bow.gif" loading="lazy">
+            <div class="pair-tabs"><button data-gif="../assets/batch2/b2-g2-bow.gif" class="active">リボン</button><button data-gif="../assets/batch2/b2-g2-hem.gif">裾</button></div>
+          </div>
+        </article>
+        <article class="pair-card" data-pair>
+          <figure class="pair-flat">
+            <img src="../assets/batch2/b2-g3-flat.webp" alt="b2-g3-flat.webp" loading="lazy">
+            <figcaption>組 3 · 平展図</figcaption>
+          </figure>
+          <div class="pair-life">
+            <img class="pair-gif" src="../assets/batch2/b2-g3-scene.gif" alt="b2-g3-scene.gif" loading="lazy">
+            <div class="pair-tabs"><button data-gif="../assets/batch2/b2-g3-scene.gif" class="active">シーン</button><button data-gif="../assets/batch2/b2-g3-skirt.gif">スカート</button><button data-gif="../assets/batch2/b2-g3-veil.gif">ベール</button></div>
+          </div>
+        </article></div>
+        <p class="pair-cta"><a class="btn ghost" href="mailto:motokoatlas2501@gmail.com?subject=Quote%20Request%20%2F%2024-48h%20Rush%20Slot%20%5BKiriFrame%20Studio%5D">Tier 2 共同納品 試単枠を相談する</a></p>
+      </div>
     </section>
 
     <section class="module" id="m3">
@@ -87,6 +147,10 @@
         <button data-filter="moe">萌え＆ファッション（L2, L3）</button>
         <button data-filter="male">男性＆サブカル（L4, L8）</button>
         <button data-filter="guide">3段階パーツ分けガイド（工坊例图2）</button>
+        <button data-filter="physics">物理動作確認済</button>
+        <button data-filter="dynamic_cg">ダイナミックCG</button>
+        <button data-filter="male_otome">男性・乙女向け</button>
+        <button data-filter="impasto_rescue">厚塗り逆算パーツ分け</button>
       </div>
       <div class="gallery" id="gallery"></div>
       <p class="watermark-note">アーカイブ実績にはリードアーティストの旧個人透かし（@Mockstrawberry9）が含まれます。NDA対応のクリーンサンプルはお問い合わせ時に個別提示可能です。</p>
